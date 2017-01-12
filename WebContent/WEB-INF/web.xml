@@ -29,4 +29,17 @@
 		<res-type>javax.sql.DataSource</res-type>
 		<res-auth>Container</res-auth>
 	</resource-ref>
+
+	<listener>
+		<description>Spring Context Loader</description>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath:com/bminor/spring/web/config/dao-context.xml
+			classpath:com/bminor/spring/web/config/service-context.xml
+		</param-value>
+	</context-param>
 </web-app>

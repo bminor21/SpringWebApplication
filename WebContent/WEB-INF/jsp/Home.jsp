@@ -13,16 +13,13 @@
 <body>
 Hello, <c:out value="${ name }"></c:out>
 
-<sql:query var="rs" dataSource="jdbc/Spring">
-select id, title, developer, platform from games
-</sql:query>
 
-<c:forEach var="row" items="${rs.rows}">
+<c:forEach var="row" items="${games}">
 <p>
     Title: ${row.title}<br/>
     Developer: ${row.developer}<br/>
     Platform: ${row.platform}<br/>
-    </p>
+</p>
 </c:forEach>
 
 </body>
