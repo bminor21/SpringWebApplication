@@ -1,7 +1,11 @@
 package com.bminor.spring.web.dao;
 
-import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.validation.constraints.Size;
+
+import com.bminor.spring.web.annotations.ValidatePlatform;
 
 public class Game {
 
@@ -13,8 +17,7 @@ public class Game {
 	@Size(min=1, max=35, message="Developer name must be present")
 	private String developer;
 	
-	@NotNull
-	@Size(min=1, max=35, message="Select a platform")
+	@ValidatePlatform
 	private String platform;
 	
 	public Game() {}
@@ -62,6 +65,18 @@ public class Game {
 		return "Game [id=" + id + ", title=" + title + ", developer=" + developer + ", platform=" + platform + "]";
 	}
 	
+	public static List<String> getAllowedPlatforms(){
+		List<String> platforms = new ArrayList<String>();
+		platforms.add( "" );
+		platforms.add( "PS1" );
+		platforms.add( "PS2" );
+		platforms.add( "PS3" );
+		platforms.add( "PS4" );
+		platforms.add( "PC" );
+		platforms.add( "SNES" );
+		platforms.add( "NES" );
+		return platforms;
+	}
 	
 
 }

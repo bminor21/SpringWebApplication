@@ -3,6 +3,13 @@
 	border: 2px solid black;
 	margin-left: 100px;
 	margin-top: 50px;
-	width: 300px;
+	width: 500px;
 	padding: 20px;
+}
+
+.error
+{
+	color: red;
+	font-size: 12px;
+	margin-left: 10px;
 }
