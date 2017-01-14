@@ -7,15 +7,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Games List</title>
+<link rel="stylesheet" type="text/css" href="static/css/main.css">
 </head>
 <body>
-
-	<c:forEach var="game" items="${games}">
-		<p>
-			<c:out value="${game}"></c:out>
-		</p>
-	</c:forEach>
-
+	<table class="gameList">
+		<tr>
+			<th>Title</th>
+			<th>Developer</th>
+			<th>Platform</th>
+		</tr>
+		<c:forEach var="game" items="${games}">
+			<tr>
+				<td><c:out value="${game.title}"></c:out></td>
+				<td><c:out value="${game.developer}"></c:out></td>
+				<td><c:out value="${game.platform}"></c:out></td>
+			</tr>
+		</c:forEach>
+	</table>
 </body>
 </html>

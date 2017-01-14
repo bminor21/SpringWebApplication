@@ -21,6 +21,10 @@ public class GameService {
 	public void setGameDao(GameDAO gameDao) {
 		this.gameDao = gameDao;
 	}
+
+	public void createGame( Game game ) {
+		gameDao.addGame( game );
+	}
 	
 	
 	
