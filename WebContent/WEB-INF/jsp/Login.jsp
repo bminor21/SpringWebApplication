@@ -5,7 +5,7 @@
 <html>
 <head>
 <title>Login Page</title>
-<link rel="stylesheet" type="text/css" href="static/css/loginForm.css">
+<link rel="stylesheet" type="text/css" href="static/css/main.css">
 </head>
 <body onload='document.f.username.focus();'>
 	<h3>Login with Username and Password</h3>
