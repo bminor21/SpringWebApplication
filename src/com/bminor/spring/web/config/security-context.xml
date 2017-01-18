@@ -23,8 +23,9 @@
 		<security:intercept-url pattern="/games" access="permitAll" />
 		<security:intercept-url pattern="/GameCreated" access="permitAll" />
 		<security:intercept-url pattern="/static/**" access="permitAll" />
+		<security:intercept-url pattern="/login" access="permitAll" />
 		<security:intercept-url pattern="/**" access="denyAll" />
 		
-		<security:form-login />
+		<security:form-login login-page="/login" />
 	</security:http>
 </beans>
