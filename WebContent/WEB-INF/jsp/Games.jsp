@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="static/css/main.css">
 </head>
 <body>
-	<table class="gameList">
+	<table>
 		<tr>
 			<th>Title</th>
 			<th>Developer</th>

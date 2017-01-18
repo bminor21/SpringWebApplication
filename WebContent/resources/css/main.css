@@ -11,8 +11,8 @@
 	font-size: 12px;
 	margin-left: 10px;
 }
-
-table.gameList td, tr, th {
+ 
+ td, tr, th {
 	border: 1px solid grey;
 	padding: 10px;
 }
