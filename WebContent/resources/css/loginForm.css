@@ -9,3 +9,13 @@ body {
 	margin-left: auto;
 	width: 300px;
 }
+
+.error {
+	color:red;
+	font-weight: bold;
+	padding-left: 25px;
+}
+
+h3 {
+	padding-left: 75px;	
+}

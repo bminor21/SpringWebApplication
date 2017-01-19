@@ -1,14 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
 <head>
 <title>Login Page</title>
-<link rel="stylesheet" type="text/css" href="static/css/main.css">
+<link rel="stylesheet" type="text/css" href="static/css/loginForm.css">
 </head>
 <body onload='document.f.username.focus();'>
-	<h3>Login with Username and Password</h3>
+	<h3>Login to continue</h3>
 	<form class="loginForm" name='f' action='${ pageContext.request.contextPath}/login' method='POST'>
 		<table>
 			<tr>
@@ -23,8 +25,12 @@
 				<td colspan='2'><input name="submit" type="submit"
 					value="Login" /></td>
 			</tr>
-			<input name="_csrf" type="hidden" value="480eae9d-4fc6-42f7-b3c5-0cb16b2f0d2f" />
+			<input name="${ _csrf.parameterName }"  value="${ _csrf.token }" type="hidden" />
 		</table>
 	</form>
+	
+	<c:if test="${ param.error != null }">
+	<p class="error">Username or password was incorrect</p>
+	</c:if>
 </body>
 </html>
