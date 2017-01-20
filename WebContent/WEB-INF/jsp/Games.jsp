@@ -16,12 +16,14 @@
 			<th>Title</th>
 			<th>Developer</th>
 			<th>Platform</th>
+			<th>Price</th>
 		</tr>
 		<c:forEach var="game" items="${games}">
 			<tr>
 				<td><c:out value="${game.title}"></c:out></td>
 				<td><c:out value="${game.developer}"></c:out></td>
 				<td><c:out value="${game.platform}"></c:out></td>
+				<td><c:out value="$ ${game.price}"></c:out></td>
 			</tr>
 		</c:forEach>
 	</table>

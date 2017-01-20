@@ -14,15 +14,18 @@
 <body>
 
 <sf:form class="form" action="${ pageContext.request.contextPath }/docreate" method="POST" commandName="game" >
-	Title: <sf:input type="text" name="title" path="title"/><sf:errors path="title" cssClass="error" /><br/>
-	Developer: <sf:input type="text" name="developer" path="developer" /><sf:errors path="developer" cssClass="error" /></br>
-	Platform:
+<table>
+	<tr><td>Title:</td><td><sf:input type="text" name="title" path="title"/><sf:errors path="title" cssClass="error" /></td></tr>
+	<tr><td>Developer:</td><td><sf:input type="text" name="developer" path="developer" /><sf:errors path="developer" cssClass="error" /></td></tr>
+	<tr><td>Price:</td><td>$<sf:input type="text" name="price" path="price"/><sf:errors path="price" cssClass="error" /></td></tr>
+	<tr><td>Platform:</td><td>
 		<sf:select name="platform" path="platform" >
 			<c:forEach var="p" items="${platforms}">
 				<option value="${p}">${p}</option>
 			</c:forEach>
-		</sf:select><sf:errors path="platform" cssClass="error" /></br>	
-	<input type="submit" value="Create Game">
+		</sf:select><sf:errors path="platform" cssClass="error" /></td></tr>
+	<tr><td><input type="submit" value="Create Game"></td></tr>
+	</table>
 </sf:form>
 
 

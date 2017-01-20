@@ -6,6 +6,7 @@ import java.util.List;
 import javax.validation.constraints.Size;
 
 import com.bminor.spring.web.annotations.ValidatePlatform;
+import com.bminor.spring.web.annotations.ValidatePrice;
 
 public class Game {
 
@@ -20,12 +21,16 @@ public class Game {
 	@ValidatePlatform
 	private String platform;
 	
+	@ValidatePrice
+	private String price;
+	
 	public Game() {}
 
-	public Game(String title, String developer, String platform) {
+	public Game(String title, String developer, String platform, String price ) {
 		this.title = title;
 		this.developer = developer;
 		this.platform = platform;
+		this.price = price;
 	}
 
 	public int getId() {
@@ -59,12 +64,22 @@ public class Game {
 	public void setPlatform(String platform) {
 		this.platform = platform;
 	}
-
-	@Override
-	public String toString() {
-		return "Game [id=" + id + ", title=" + title + ", developer=" + developer + ", platform=" + platform + "]";
+	
+	public String getPrice() {
+		return price;
 	}
 	
+	public void setPrice( String price ){
+		this.price = price;
+	}
+
+	
+	@Override
+	public String toString() {
+		return "Game [id=" + id + ", title=" + title + ", developer=" + developer + ", platform=" + platform
+				+ ", price=" + price + "]";
+	}
+
 	public static List<String> getAllowedPlatforms(){
 		List<String> platforms = new ArrayList<String>();
 		platforms.add( "" );

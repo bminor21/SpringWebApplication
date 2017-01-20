@@ -33,6 +33,7 @@ public class GameDAO {
 				game.setTitle( rs.getString("title") );
 				game.setDeveloper( rs.getString("developer") );
 				game.setPlatform( rs.getString("platform") );
+				game.setPrice( rs.getString("price") );
 				return game;
 			}
 		});
