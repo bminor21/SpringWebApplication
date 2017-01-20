@@ -8,14 +8,11 @@
 
 	<security:authentication-manager>
 		<security:authentication-provider>
-			<security:user-service>
-				<security:user name="brett" authorities="admin" password="letmein" />
-				<security:user name="test" authorities="user" password="password" />		
-			</security:user-service>
+			<security:jdbc-user-service data-source-ref="dataSource" />
 		</security:authentication-provider>
 	</security:authentication-manager>
-	
-	
+
+
 	<security:http use-expressions="true">
 		<security:intercept-url pattern="/creategame" access="isAuthenticated()" />
 		<security:intercept-url pattern="/docreate" access="isAuthenticated()" />		
