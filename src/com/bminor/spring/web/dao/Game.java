@@ -12,10 +12,10 @@ public class Game {
 
 	private int id;
 	
-	@Size(min=1, max=35, message="Game title name must be present")
+	@Size(min=1, max=35)
 	private String title;
 	
-	@Size(min=1, max=35, message="Developer name must be present")
+	@Size(min=1, max=35)
 	private String developer;
 	
 	@ValidatePlatform
