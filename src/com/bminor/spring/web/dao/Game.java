@@ -9,8 +9,6 @@ import com.bminor.spring.web.annotations.ValidatePlatform;
 import com.bminor.spring.web.annotations.ValidatePrice;
 
 public class Game {
-
-	private int id;
 	
 	@Size(min=1, max=35)
 	private String title;
@@ -31,14 +29,6 @@ public class Game {
 		this.developer = developer;
 		this.platform = platform;
 		this.price = price;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getTitle() {
@@ -76,7 +66,7 @@ public class Game {
 	
 	@Override
 	public String toString() {
-		return "Game [id=" + id + ", title=" + title + ", developer=" + developer + ", platform=" + platform
+		return "Game [title=" + title + ", developer=" + developer + ", platform=" + platform
 				+ ", price=" + price + "]";
 	}
 

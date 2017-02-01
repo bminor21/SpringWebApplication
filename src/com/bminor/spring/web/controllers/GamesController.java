@@ -5,6 +5,8 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -41,19 +43,23 @@ public class GamesController {
 	@RequestMapping(value="/docreate", method=RequestMethod.POST )
 	public String doCreate( Model model, @Valid Game game, BindingResult result ) {
 		
-		System.out.println( game );
-		
+		// make sure form has met the requirements
 		if( result.hasErrors() ) {
 			model.addAttribute( "platforms", Game.getAllowedPlatforms() );
 			return "CreateGame";
 		}
-		
-		gameService.createGame( game );
+
+		try {
+			gameService.createGame( game );
+		} catch( DuplicateKeyException e ) {
+			result.rejectValue( "title", "DuplicateKey.game.title" );
+			return "CreateGame";
+		}
 		
 		return "GameCreated";
 	}
 	
-	/*  This is now handled by : DatabaseErrorHandler.java
+	/*  This is now handled by : com.bminor.spring.web.controllers.DatabaseErrorHandler.java
 	@ExceptionHandler(DataAccessException.class)
 	public String handleDatabaseExcpetion( DataAccessException error ) {
 		return "Error";

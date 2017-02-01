@@ -25,7 +25,5 @@ public class GameService {
 	public void createGame( Game game ) {
 		gameDao.addGame( game );
 	}
-	
-	
-	
+
 }

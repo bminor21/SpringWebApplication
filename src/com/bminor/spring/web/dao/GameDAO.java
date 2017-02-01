@@ -29,7 +29,6 @@ public class GameDAO {
 			
 			public Game mapRow(ResultSet rs, int rowNum ) throws SQLException {
 				Game game = new Game();
-				game.setId( rs.getInt("id") );
 				game.setTitle( rs.getString("title") );
 				game.setDeveloper( rs.getString("developer") );
 				game.setPlatform( rs.getString("platform") );
@@ -48,7 +47,6 @@ public class GameDAO {
 			
 			public Game mapRow(ResultSet rs, int rowNum ) throws SQLException {
 				Game game = new Game();
-				game.setId( rs.getInt("id") );
 				game.setTitle( rs.getString("title") );
 				game.setDeveloper( rs.getString("developer") );
 				game.setPlatform( rs.getString("platform") );
@@ -58,22 +56,22 @@ public class GameDAO {
 	}
 	
 	/* Remove a game with a specific id from the database */
-	public boolean deleteGameById( int id ){
-		MapSqlParameterSource parms = new MapSqlParameterSource( "id", id );
-		return ( jdbc.update( "delete from games where id = :id", parms ) == 1 );
+	public boolean deleteGameById( String title ){
+		MapSqlParameterSource parms = new MapSqlParameterSource( "title", title );
+		return ( jdbc.update( "delete from games where title = :title", parms ) == 1 );
 	}
 	
 	/* Add a game to the database */
 
 	public boolean addGame( Game game ){
 		BeanPropertySqlParameterSource bean = new BeanPropertySqlParameterSource(game);
-		return ( jdbc.update("insert into games (title, developer, platform ) values (:title, :developer, :platform)", bean) == 1 );
+		return ( jdbc.update("insert into games (title, developer, platform, price ) values (:title, :developer, :platform, :price)", bean) == 1 );
 	}
 	
 	/* Add mutliple games */
 	public int [] addGames( List<Game> games ){
 		SqlParameterSource [] values = SqlParameterSourceUtils.createBatch( games.toArray() );
-		return jdbc.batchUpdate("insert into games (title, developer, platform ) values (:title, :developer, :platform)", values );
+		return jdbc.batchUpdate("insert into games (title, developer, platform, price ) values (:title, :developer, :platform, :price)", values );
 	}
 	
 	/* Updates a game */
